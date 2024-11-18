@@ -3,24 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cézarova šifra</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="Cezar/style.css">
+    <title>Caesarova šifra</title>
 </head>
 <body>
-    <nav>
-        <a href="index.html">Homepage</a>
-        <a href="cezar.html">Cézarova šifra</a>
-        <a href="kalkulacka.html">Kalkulačka</a>
-        <a href="colour-picker/color.html">Color Picker</a>
-    </nav>
-    <h1>Cézarova šifra</h1>
-    <p>Zadejte text a klíč pro šifrování nebo dešifrování:</p>
-    <form>
-        <label for="text">Text:</label>
-        <input type="text" id="text" name="text">
-        <label for="key">Klíč:</label>
-        <input type="number" id="key" name="key">
-        <button type="submit">Zašifrovat</button>
-    </form>
+    <h1>Caesarova šifra</h1>
+    <label for="text">Zadejte text:</label>
+    <input type="text" id="text" placeholder="Zadejte text" /><br><br>
+
+    <label for="shift">Posun:</label>
+    <input type="number" id="shift" value="3" /><br><br>
+
+    <button onclick="encryptText()">Zašifrovat</button>
+    <button onclick="decryptText()">Dešifrovat</button>
+
+    <h2>Výsledek:</h2>
+    <p id="output"></p>
+
+    <script>
+        function caesarCipher(str, shift) {
+            const alphabetSize = 26;
+            shift = shift % alphabetSize; // Zajistí, že posun je v rozsahu 0-25
+            if (shift < 0) {
+                shift = alphabetSize + shift;
+            }
+
+            return str.split('').map(char => {
+                if (char.match(/[a-z]/)) {
+                    let code = char.charCodeAt(0);
+                    return String.fromCharCode((code - 97 + shift) % alphabetSize + 97);
+                } else if (char.match(/[A-Z]/)) {
+                    let code = char.charCodeAt(0);
+                    return String.fromCharCode((code - 65 + shift) % alphabetSize + 65);
+                } else {
+                    return char; // Nešifrovat speciální znaky
+                }
+            }).join('');
+        }
+
+        function encryptText() {
+            const text = document.getElementById('text').value;
+            const shift = parseInt(document.getElementById('shift').value, 10);
+            document.getElementById('output').innerText = caesarCipher(text, shift);
+        }
+
+        function decryptText() {
+            const text = document.getElementById('text').value;
+            const shift = parseInt(document.getElementById('shift').value, 10);
+            document.getElementById('output').innerText = caesarCipher(text, -shift);
+        }
+    </script>
 </body>
 </html>
