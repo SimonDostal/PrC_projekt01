@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulačky</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="js/script.js">
+</head>
+<body>
+    <!-- First Calculator -->
+    <div class="calculator">
+        <h1>Matematická Kalkulačka</h1>
+        <input type="text" id="input" placeholder="Zadej výpočet nebo číslo">
+        <div id="result" class="result"></div>
+
+        <div class="button-grid">
+            <button onclick="appendNumber('1')">1</button>
+            <button onclick="appendNumber('2')">2</button>
+            <button onclick="appendNumber('3')">3</button>
+            <button onclick="appendNumber('4')">4</button>
+            <button onclick="appendNumber('5')">5</button>
+            <button onclick="appendNumber('6')">6</button>
+            <button onclick="appendNumber('7')">7</button>
+            <button onclick="appendNumber('8')">8</button>
+            <button onclick="appendNumber('9')">9</button>
+            <button onclick="appendNumber('0')">0</button>
+            <button onclick="appendNumber('.')">.</button>
+            <button onclick="clearInput()">C</button>
+            <button onclick="appendOperator('+')">+</button>
+            <button onclick="appendOperator('-')">-</button>
+            <button onclick="appendOperator('*')">*</button>
+            <button onclick="appendOperator('/')">/</button>
+            <button onclick="appendOperator('%')">%</button>
+            <button onclick="appendOperator('**')">^ (mocnina)</button>
+            <button onclick="evaluateExpression()">=</button>
+        </div>
+
+        <div class="conversion">
+            <h2>Převod čísel</h2>
+            <button onclick="convert('binToDec')">Binární na Desítkovou</button>
+            <button onclick="convert('decToBin')">Desítková na Binární</button>
+            <button onclick="convert('hexToDec')">Hexadecimální na Desítkovou</button>
+            <button onclick="convert('decToHex')">Desítková na Hexadecimální</button>
+            <!-- Additional buttons for hexadecimal values -->
+            <button onclick="appendNumber('A')">A</button>
+            <button onclick="appendNumber('B')">B</button>
+            <button onclick="appendNumber('C')">C</button>
+            <button onclick="appendNumber('D')">D</button>
+            <button onclick="appendNumber('E')">E</button>
+            <button onclick="appendNumber('F')">F</button>
+        </div>
+    </div>
+
+    <!-- Second Calculator -->
+    <div class="geometry-calculator">
+        <h1>Geometrická Kalkulačka</h1>
+        <div class="geometry-input">
+            <label for="side">Hodnota strany:</label>
+            <input type="text" id="side" placeholder="např. 5">
+        </div>
+        <div class="shapes">
+            <button onclick="calculateArea('equilateralTriangle')">Obsah rovnostranného trojúhelníku</button>
+            <button onclick="calculateArea('circle')">Obsah kruhu</button>
+            <button onclick="calculateArea('square')">Obsah čtverce</button>
+            <button onclick="calculateVolume('sphere')">Objem koule</button>
+            <button onclick="calculateVolume('cube')">Objem krychle</button>
+        </div>
+        <div id="geometryResult" class="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
