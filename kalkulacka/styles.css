@@ -1,0 +1,167 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Gradient background */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Navbar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    z-index: 1000;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffc107;
+}
+
+/* Calculator Containers */
+.calculator, .geometry-calculator {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+    width: 350px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(15px);
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 0px 4px 6px rgba(255, 255, 255, 0.4);
+}
+
+label {
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Input Fields */
+input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    text-align: center;
+    background: rgb(146, 135, 135);
+    color: #fff;
+    box-shadow: inset 0px 4px 6px rgba(252, 252, 252, 0.3);
+}
+
+/* Result Fields */
+.result {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 1.2rem;
+    min-height: 50px;
+    box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    font-size: 1rem;
+    padding: 12px;
+    margin: 5px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(0px);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Grid */
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Conversion Buttons */
+.conversion h2 {
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 20px 0;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.conversion button {
+    width: calc(50% - 10px);
+    margin: 5px auto;
+    display: block;
+}
+
+/* Shapes and Geometry */
+.shapes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.geometry-calculator button {
+    width: calc(50% - 10px);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .calculator, .geometry-calculator {
+        width: 90%;
+        padding: 15px;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+}
