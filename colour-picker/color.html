@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Color Picker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="color-picker-container">
+        <h1>🎨Modern Color Picker</h1>
+        <div class="circle">
+            <input type="color" id="color-picker" value="#3498db">
+        </div>
+        <button id="apply-color">Vybrat barvu</button>
+        <div class="color-display">
+            <p>Vybrali jste barvu:</p>
+            <span id="color-code">#3498db</span>
+        </div>
+    </div>
+
+    <script>
+        const colorPicker = document.getElementById('color-picker');
+        const colorCode = document.getElementById('color-code');
+        const applyButton = document.getElementById('apply-color');
+        const colorCircle = document.querySelector('.circle'); // Nově přidaný výběr kruhu
+
+        colorPicker.addEventListener('input', (event) => {
+            const selectedColor = event.target.value;
+            colorCode.textContent = selectedColor;
+            colorCode.style.color = selectedColor;
+            colorCircle.style.backgroundColor = selectedColor; // Aktualizace barvy kruhu
+        });
+
+        applyButton.addEventListener('click', () => {
+            const selectedColor = colorPicker.value;
+            document.body.style.background = selectedColor;
+        });
+
+    </script>
+</body>
+</html>
